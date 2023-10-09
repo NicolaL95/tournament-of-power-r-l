@@ -9,10 +9,8 @@
 
 
 
-
-
-
-
+# to get changes from git
+# git fetch -> git pull
 
 
 
