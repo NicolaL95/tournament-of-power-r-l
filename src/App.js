@@ -8,6 +8,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
          torneo del potere
+         Tegus BESTIA
         </p>
         <a
           className="App-link"
