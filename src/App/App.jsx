@@ -8,9 +8,11 @@ import {
 function App() {
   return (
     <div className="App">
-     <Header></Header>
-    <main><Outlet></Outlet></main>
-    <Footer></Footer>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 }
