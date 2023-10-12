@@ -5,6 +5,8 @@ import App from './App/App';
 import reportWebVitals from './reportWebVitals';
 import Homepage from './views/Homepage/Homepage';
 import Characters from './views/Characters/Characters';
+import DefaultChildComponent from './components/DefaultChildComponent'
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -15,11 +17,16 @@ import {
 
 
 
+
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<App/>}>
-      <Route index element={<Homepage/>}/>
-      <Route path="characters" element={<Characters/>}/>
+    <Route path="/" element={<App />}>
+      <Route index element={<Homepage />} />
+      <Route path="characters" element={<DefaultChildComponent/>}>
+        <Route index element={<Characters />} />
+      </Route>
     </Route>
   )
 );
@@ -27,7 +34,7 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-       <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
