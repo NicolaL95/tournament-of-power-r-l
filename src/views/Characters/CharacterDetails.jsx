@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../components/UseFetch";
-
+import Nigga from "../../assets/nig.png"
 export default function CharacterDetails() {
     const { id } = useParams();
     const { data: character, error, isPending } = useFetch('http://localhost:8000/characters/' + id);
@@ -12,7 +12,7 @@ export default function CharacterDetails() {
                 { error && <div>{ error }</div> }
                 { character && (
                      <div className="content is-medium">
-                        <img src="nig.png" style={{maxHeight: "100px"}} className="py-2 px-2" />
+                        <img src={Nigga} style={{maxHeight: "100px"}} className="py-2 px-2" />
                         <h1>{ character.name }</h1>
                         <p>{ character.description }</p>
                     </div>
