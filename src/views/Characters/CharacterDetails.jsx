@@ -4,7 +4,6 @@ import useFetch from "../../components/UseFetch";
 export default function CharacterDetails() {
     const { id } = useParams();
     const { data: character, error, isPending } = useFetch('http://localhost:8000/characters/' + id);
-    const history = useNavigate();
 
     return ( 
         <section className="section">
