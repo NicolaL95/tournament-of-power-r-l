@@ -7,7 +7,7 @@ export default function CharactersList({ characters }) {
                 <div className="column" style={{padding: "10rem"}} key={character.id}>
                     <Link to={`/characters/${character.id}`}>
                         <div>
-                            <img src="car.png" style={{maxHeight: "100px"}} className="py-2 px-2" />
+                            <img src="nig.png" style={{maxHeight: "100px"}} className="py-2 px-2" />
                         </div>
                         { character.name }
                     </Link>

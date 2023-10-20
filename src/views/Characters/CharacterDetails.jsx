@@ -12,7 +12,7 @@ export default function CharacterDetails() {
                 { error && <div>{ error }</div> }
                 { character && (
                      <div className="content is-medium">
-                        <img src="car.png" style={{maxHeight: "100px"}} className="py-2 px-2" />
+                        <img src="nig.png" style={{maxHeight: "100px"}} className="py-2 px-2" />
                         <h1>{ character.name }</h1>
                         <p>{ character.description }</p>
                     </div>
