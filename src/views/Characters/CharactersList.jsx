@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 
 export default function CharactersList({ characters }) {
     return ( 
-        <div class="columns is-flex is-flex-direction-row is-flex-wrap-wrap">
+        <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap">
             {characters.map(character => (
-                <div class="column" style={{padding: "10rem"}}>
+                <div className="column" style={{padding: "10rem"}} key={character.id}>
                     <Link to={`/characters/${character.id}`}>
                         <div>
-                            <img src="car.png" style={{maxHeight: "100px"}} class="py-2 px-2" />
+                            <img src="car.png" style={{maxHeight: "100px"}} className="py-2 px-2" />
                         </div>
                         { character.name }
                     </Link>
@@ -15,4 +15,4 @@ export default function CharactersList({ characters }) {
             ))}
         </div>
     );
- }
+}
