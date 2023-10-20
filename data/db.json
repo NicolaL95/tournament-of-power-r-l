@@ -1,0 +1,39 @@
+{
+    "characters": [
+      {
+        "id": 1,
+        "name": "Ema",
+        "description": "TOP TOP TOP TOP TOP TOP"
+      },
+      {
+        "id": 2,
+        "name": "Nigo",
+        "description": "TOP TOP TOP TOP TOP TOP"
+      },
+      {
+        "id": 3,
+        "name": "Tegus",
+        "description": "TOP TOP TOP TOP TOP TOP"
+      },
+      {
+        "id": 4,
+        "name": "Mosca",
+        "description": "TOP TOP TOP TOP TOP TOP"
+      },
+      {
+        "id": 5,
+        "name": "Fede",
+        "description": "TOP TOP TOP TOP TOP TOP"
+      },
+      {
+        "id": 6,
+        "name": "Matte",
+        "description": "TOP TOP TOP TOP TOP TOP"
+      },
+      {
+        "id": 7,
+        "name": "Andio",
+        "description": "TOP TOP TOP TOP TOP TOP"
+      }
+    ]
+}
