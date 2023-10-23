@@ -1,16 +1,21 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Nigga from "../../assets/nig.png";
 import Radar from "./RadarChart";
 import RadarChart from "react-svg-radar-chart";
 import RestChart from "./RadarChart";
-import Db from "../../assets/db.json";
+import useDatabase from "../../hooks/useDatabase";
+/* import Db from "../../assets/db.json"; */
 
 export default function CharacterDetails() {
+
+    const { pathname } = useLocation();
+    const [data, setData] = useDatabase(pathname);
+
     const { id } = useParams();
 
-    return ( 
+    return (
         <div className="container p-6">
-                     <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center">
+            {/*       <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center">
                         <div className="column is-full">
                             <h1 className="is-size-1 has-text-weight-bold">{ Db[id].name }</h1>
                         </div>
@@ -27,7 +32,7 @@ export default function CharacterDetails() {
                                 <p>{ Db[id].description }</p>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
         </div>
-     );
+    );
 }

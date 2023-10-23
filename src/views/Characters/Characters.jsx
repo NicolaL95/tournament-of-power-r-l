@@ -1,12 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import Nigga from "../../assets/nig.png";
-import Db from "../../assets/db.json";
+import useDatabase from '../../hooks/useDatabase';
+
+
 
 export default function Characters() {
+
+   
+   
+    useEffect(() => {
+      
+
+    
+     
+    }, [])
+    
   return (
     <div className="container p-6">
-        <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap">
+       {/*  <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap">
             {Db.map( character => (
                 <div className="column" style={{flexBasis: "auto"}} key={character.id}>
                     <Link to={`/characters/${character.id}`}>
@@ -17,7 +29,7 @@ export default function Characters() {
                     </Link>
                 </div>
             ))}
-        </div>
+        </div> */}
     </div>
   )
 }
