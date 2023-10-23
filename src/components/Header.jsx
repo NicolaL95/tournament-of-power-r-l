@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
+import Top from "../assets/top.png";
 
 export default function Header() {
     return(
         <header>
-            <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
+            <nav className="navbar is-dark is-hoverable" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <Link to="/">
-                        <img src="top.png" style={{maxHeight: "60px"}} className="py-2 px-2" />
+                        <img src={Top} style={{maxHeight: "60px"}} className="py-2 px-2" />
                     </Link>
                     <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
