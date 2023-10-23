@@ -1,27 +1,50 @@
-import RadarChart from 'react-svg-radar-chart';
-import 'react-svg-radar-chart/build/css/index.css'
+import * as echarts from 'echarts';
+import { useEffect } from 'react';
 
-export default function Radar() {
+export default function RadarChart() {
 
-const data = [
-    {
-      data: {
-        retarded: 0.5,
-        highness: 0.9,
-        hunger: 1,
-        harassment: 1,
-      },
-      meta: { color: 'red' }
-    }
-  ];
+useEffect(() => {
+const chartDom = document.getElementById('test');
+const myChart = echarts.init(chartDom);
+let option;
 
-const captions = {
-    // columns
-    retarded: 'Retarded',
-    highness: 'Highness',
-    hunger: 'Hunger',
-    harassment: 'Harassment'
+option = {
+    title: {
+      text: 'Specs'
+    },
+    legend: {
+      data: ['In his mind', 'In reality']
+    },
+    radar: {
+      // shape: 'circle',
+      indicator: [
+        { name: 'Retarded', max: 6500 },
+        { name: 'Highness', max: 16000 },
+        { name: 'Hunger', max: 30000 },
+        { name: 'Harassment', max: 38000 },
+        { name: 'Skilled', max: 52000 },
+        { name: 'Cringe', max: 25000 }
+      ]
+    },
+    series: [
+      {
+        name: 'Mind vs Reality',
+        type: 'radar',
+        data: [
+          {
+            value: [4200, 3000, 20000, 35000, 50000, 18000],
+            name: 'In his mind'
+          },
+          {
+            value: [5000, 14000, 28000, 26000, 42000, 21000],
+            name: 'In reality'
+          }
+        ]
+      }
+    ]
   };
 
-  return (<RadarChart captions={captions} data={data} size={550} />);
+return (option && myChart.setOption(option));
+
+});
 }
