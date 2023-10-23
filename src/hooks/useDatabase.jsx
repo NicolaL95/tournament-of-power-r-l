@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import DB from '../db/db.json'
+import { useLocation } from 'react-router';
 
 
-export default function useDatabase(queryRoute) {
-
-    const jsonStepFromQuery = queryRoute.split("/");
+export default function useDatabase() {
+    const { pathname } = useLocation();
+    const jsonStepFromQuery = pathname.split("/");
     const [data, setData] = useState("");
 
 
     useEffect(() => {
 
         jsonStepFromQuery.shift();
+       
+        
         let tmpResult
-        if (typeof queryRoute !== "string") tmpResult = false;
+        if (typeof pathname !== "string") tmpResult = false;
         else {
             tmpResult = DB
 
@@ -27,7 +30,7 @@ export default function useDatabase(queryRoute) {
                 }
             }
         }
-
+       
         setData(tmpResult);
 
     }, [])
