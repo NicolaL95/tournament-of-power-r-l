@@ -4,7 +4,8 @@ import { useLocation } from 'react-router';
 
 export default function useDatabase() {
     
-    const { pathname } = useLocation();
+    let { pathname } = useLocation();
+    if ( pathname === "/" ) pathname += "homepage";
     const jsonStepFromQuery = pathname.split("/").slice(1);
     const [data, setData] = useState("");
 
