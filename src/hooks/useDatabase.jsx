@@ -36,6 +36,6 @@ export default function useDatabase() {
 
 
 
-    return [data, setData]
+   return data
 
 }

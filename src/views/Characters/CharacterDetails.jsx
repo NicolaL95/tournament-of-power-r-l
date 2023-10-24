@@ -9,7 +9,7 @@ import useDatabase from "../../hooks/useDatabase";
 export default function CharacterDetails() {
 
     const { pathname } = useLocation();
-    const [data, setData] = useDatabase();
+    const { data } = useDatabase();
 
     const { id } = useParams();
 
