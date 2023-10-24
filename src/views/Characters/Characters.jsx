@@ -10,8 +10,7 @@ export default function Characters() {
     return(
         <div className="container p-6">
             <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap">
-                {
-                Object.keys(characters).map(key =>
+                {Object.keys(characters).map(key =>
                     <div className="column" style={ {flexBasis: "auto"} } key={ characters[key].id }>
                         <Link to={ `/characters/${characters[key].id}` }>
                             <div>
