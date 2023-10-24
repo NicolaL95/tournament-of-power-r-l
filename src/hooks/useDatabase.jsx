@@ -28,10 +28,6 @@ export default function useDatabase() {
        console.log(tmpResult)
         setData(tmpResult);
     }, [])
-
-
-
-
+    
     return [data, setData]
-
 }
