@@ -6,17 +6,9 @@ import RestChart from "./RadarChart";
 import useDatabase from "../../hooks/useDatabase";
 
 export default function CharacterDetails() {
-<<<<<<< HEAD
     
     let character = useDatabase();
     character = character[0];
-=======
-
-    const { pathname } = useLocation();
-    const { data } = useDatabase();
-
-    const { id } = useParams();
->>>>>>> 053c4368c61faf1e5e3878b242c194883d220798
 
     return (
         <div className="container p-6">
