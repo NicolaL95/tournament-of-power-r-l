@@ -7,8 +7,7 @@ import useDatabase from "../../hooks/useDatabase";
 
 export default function CharacterDetails() {
     
-    let character = useDatabase();
-    character = character[0];
+    const character = useDatabase();
 
     return (
         <div className="container p-6">
