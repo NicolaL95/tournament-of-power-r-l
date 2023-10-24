@@ -4,14 +4,14 @@ import { useLocation } from 'react-router';
 
 
 export default function useDatabase() {
-    
+
     const { pathname } = useLocation();
     const jsonStepFromQuery = pathname.split("/").slice(1);
     const [data, setData] = useState("");
 
 
-    useEffect(() => {   
-        
+    useEffect(() => {
+
         let tmpResult
         if (typeof pathname !== "string") tmpResult = false;
         else {
@@ -19,8 +19,7 @@ export default function useDatabase() {
 
             for (const [_, value] of jsonStepFromQuery.entries()) {
 
-                if (Array.isArray(tmpResult)) tmpResult = tmpResult.find(result => result.id == value)
-                else tmpResult = tmpResult[value]
+                tmpResult = Array.isArray(tmpResult) ? tmpResult.find(result => result.id == value) : tmpResult = tmpResult[value]
 
                 if (tmpResult === undefined) {
                     setData(false)
@@ -28,7 +27,7 @@ export default function useDatabase() {
                 }
             }
         }
-       console.log(tmpResult)
+        console.log(tmpResult)
         setData(tmpResult);
 
     }, [])
@@ -36,6 +35,6 @@ export default function useDatabase() {
 
 
 
-   return data
+    return data
 
 }
