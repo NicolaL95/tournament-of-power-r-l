@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function DateTimeDisplay ({ value, type, isDanger }) {
+export default function DateTimeDisplay ({ value, type }) {
   return (
-    <div className={isDanger ? 'container' : 'container'}>
+    <div className='container'>
       <p>{String(value)}</p>
       <span>{type}</span>
     </div>
