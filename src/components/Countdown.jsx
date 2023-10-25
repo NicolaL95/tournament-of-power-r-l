@@ -10,16 +10,10 @@ const ExpiredCountdown = () => {
   );
 };
 
-const ShowCountdown = ({ days, hours, minutes, seconds }) => {
+const ShowCountdown = (props) => {
   return (
     <div className="container is-flex p-6">
-        <DisplayValues value={days} type={'Days'} />
-        <p>:</p>
-        <DisplayValues value={hours} type={'Hours'} />
-        <p>:</p>
-        <DisplayValues value={minutes} type={'Mins'} />
-        <p>:</p>
-        <DisplayValues value={seconds} type={'Seconds'} />
+     {Object.keys(props).map(key => <DisplayValues value={props[key]} type={key}/>)}
     </div>
   );
 };

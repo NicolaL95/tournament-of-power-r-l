@@ -1,5 +1,5 @@
 import React from 'react';
-import "./DateTimeDisplay.css"
+import "./DisplayValues.css"
 
 export default function DisplayValues ({ value, type }) {
   return (
