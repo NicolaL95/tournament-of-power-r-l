@@ -11,16 +11,11 @@ const ExpiredNotice = () => {
   );
 };
 
-const ShowCounter = ({ days, hours, minutes, seconds }) => {
+const ShowCounter = (props) => {
+ console.log(Object.entries(props))
   return (
     <div className="container is-flex p-6">
-        <DateTimeDisplay value={days} type={'Days'} />
-        <p>:</p>
-        <DateTimeDisplay value={hours} type={'Hours'} />
-        <p>:</p>
-        <DateTimeDisplay value={minutes} type={'Mins'} />
-        <p>:</p>
-        <DateTimeDisplay value={seconds} type={'Seconds'} />
+     {Object.keys(props).map(key => <DateTimeDisplay value={props[key]} type={key}/>)}
     </div>
   );
 };

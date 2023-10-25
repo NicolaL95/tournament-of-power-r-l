@@ -1,0 +1,11 @@
+.date-timer{
+position: relative;
+    }
+
+.date-timer:not(:last-child)::after{
+content: ":";
+position: absolute;
+right: 0;
+top: 50%;
+transform: translate(0,-50%);
+}
