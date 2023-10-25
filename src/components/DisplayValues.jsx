@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DateTimeDisplay ({ value, type }) {
+export default function DisplayValues ({ value, type }) {
   return (
     <div className='container'>
       <p>{String(value)}</p>

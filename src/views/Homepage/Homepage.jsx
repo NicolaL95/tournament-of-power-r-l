@@ -1,7 +1,7 @@
 import React from 'react'
 import useDatabase from "../../hooks/useDatabase";
 import Carousel from '../../components/Carousel';
-import CountdownTimer from '../../components/CountdownTimer';
+import Countdown from '../../components/Countdown';
 
 export default function Homepage() {
 
@@ -13,7 +13,7 @@ export default function Homepage() {
     <div className="container is-flex-direction-row is-flex-wrap-wrap p-6">
         <p className='has-text-justified p-6'>{ description }</p>
         <Carousel />
-        <CountdownTimer targetDate={targetDate}/>
+        <Countdown targetDate={targetDate}/>
     </div>
   )
 }
