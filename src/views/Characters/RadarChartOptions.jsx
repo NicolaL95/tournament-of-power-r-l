@@ -1,4 +1,4 @@
-export default function RadarChartValues(characterSpecs2k21, characterSpecs2k23) {
+export default function RadarChartValues(characterSpecs2k21, characterSpecs2k24) {
 
     return(
         {
@@ -6,7 +6,7 @@ export default function RadarChartValues(characterSpecs2k21, characterSpecs2k23)
                 text: 'Specs'
             },
             legend: {
-                data: ['TOP2K21','TOP2K23']
+                data: ['TOP2K21','TOP2K24']
             },
             radar: {
                 indicator: [
@@ -20,7 +20,7 @@ export default function RadarChartValues(characterSpecs2k21, characterSpecs2k23)
             },
             series: [
                 {
-                name: 'TOP2K21 VS TOP2K23',
+                name: 'TOP2K21 VS TOP2K24',
                 type: 'radar',
                 data: [
                     {
@@ -28,8 +28,8 @@ export default function RadarChartValues(characterSpecs2k21, characterSpecs2k23)
                     name: 'TOP2K21'
                     },
                     {
-                    value: characterSpecs2k23,
-                    name: 'TOP2K23'
+                    value: characterSpecs2k24,
+                    name: 'TOP2K24'
                     }
                 ]
                 }

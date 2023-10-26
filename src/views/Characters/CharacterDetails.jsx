@@ -17,7 +17,7 @@ export default function CharacterDetails() {
                     </div>
                     <div className="column is-half" style={{ padding: "5rem" }}>
                         <div id="radarChart" style={{ width: "500px", height: "500px" }}>
-                            <RadarChart characterSpecs2k21={character.specs2k21} characterSpecs2k23={character.specs2k23} />
+                            <RadarChart characterSpecs2k21={character.specs2k21} characterSpecs2k24={character.specs2k24} />
                         </div>
                     </div>
                     <div className="column is-half">
