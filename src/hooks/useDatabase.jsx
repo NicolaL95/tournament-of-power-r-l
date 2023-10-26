@@ -2,17 +2,31 @@ import React, { useEffect, useState } from 'react'
 import DB from '../db/db.json'
 import { useLocation } from 'react-router';
 
-export default function useDatabase() {
-    
-    let { pathname } = useLocation();
-    if ( pathname === "/" ) pathname += "homepage";
-    const jsonStepFromQuery = pathname.split("/").slice(1);
+
+
+export default function useDatabase(customJsonPathRaw = null) {
+
+    function formatCustomJsonPath(jsonPathRaw){
+        return jsonPathRaw;
+    }
+
+    const {pathname} = useLocation();
+    let customJsonPathFormatted;
+
+    if(!customJsonPathRaw){
+         customJsonPathFormatted  = pathname
+    }else{
+        customJsonPathFormatted = formatCustomJsonPath(customJsonPathRaw);
+    }
+        
+    if ( customJsonPathFormatted === "/" ) customJsonPathFormatted += "homepage";
+    const jsonStepFromQuery = customJsonPathFormatted.split("/").slice(1);
     const [data, setData] = useState("");
 
     useEffect(() => {   
         
         let tmpResult
-        if (typeof pathname !== "string") tmpResult = false;
+        if (typeof customJsonPathFormatted !== "string") tmpResult = false;
         else {
             tmpResult = DB
             for (const [_, value] of jsonStepFromQuery.entries()) {
@@ -28,7 +42,7 @@ export default function useDatabase() {
         }
         setData(tmpResult);
         
-    }, [])
+    }, [data])
 
-    return data;
+    return [data,setData];
 }

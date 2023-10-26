@@ -1,0 +1,18 @@
+.nodes-container{
+   font-size: 2rem;
+   display: flex;
+   width: 50%; 
+   justify-content: space-between;
+}
+.nodes-container > .node-element{
+   display: flex;
+
+}
+
+.nodes-container > .node-element:not(:last-child)::after{
+   content: "";
+   height: 1px;
+   display: block;
+   border: 1px solid gray;
+   width: 100%;
+}

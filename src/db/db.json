@@ -48,6 +48,18 @@
 
   }
 ],
-"timeline":{},
+"timeline":{
+  "description:": "timeline-page",
+  "timelineNodes":[
+    {
+      "description": "node-1",
+      "subnodes": [{"description": "subnode-1-1"},{"description":"subnode-1-2"}]
+    },
+    {
+      "description": "node-2",
+      "subnodes": [{"description": "subnode-2-1"},{"description":"subnode-2-2"}]
+    }
+  ]
+},
 "contacs": {}   
 }
