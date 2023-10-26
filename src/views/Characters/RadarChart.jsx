@@ -1,6 +1,6 @@
 import * as echarts from 'echarts';
 import { useEffect } from 'react';
-import RadarChartValues from './RadarChartOptions';
+import RadarChartValues from './RadarChartValues';
 
 export default function RadarChart({characterSpecs2k21, characterSpecs2k24}) {
 
