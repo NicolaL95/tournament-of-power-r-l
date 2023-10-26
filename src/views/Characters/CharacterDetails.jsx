@@ -15,9 +15,9 @@ export default function CharacterDetails() {
                     <div className="column is-full">
                         <h1 className="is-size-1 has-text-weight-bold">{character.name}</h1>
                     </div>
-                    <div key="test" className="column is-half" style={{ padding: "5rem" }}>
-                        <div id="test" style={{ width: "500px", height: "500px" }}>
-                            <RadarChart />
+                    <div className="column is-half" style={{ padding: "5rem" }}>
+                        <div id="radarChart" style={{ width: "500px", height: "500px" }}>
+                            <RadarChart characterSpecs2k21={character.specs2k21} characterSpecs2k23={character.specs2k23} />
                         </div>
                     </div>
                     <div className="column is-half">
