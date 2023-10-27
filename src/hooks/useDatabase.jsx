@@ -3,32 +3,31 @@ import DB from '../db/db.json'
 import { useLocation } from 'react-router';
 
 export default function useDatabase() {
-    
+
     let { pathname } = useLocation();
     if ( pathname === "/" ) pathname += "homepage";
-    const jsonStepFromQuery = pathname.split("/").slice(1);
-    const [data, setData] = useState("");
+    const dbSearchPath = pathname.split("/").slice(1);
+    const [searchResult, setSearchResult] = useState("");
 
     useEffect(() => {   
         
-        let tmpResult
-        if (typeof pathname !== "string") tmpResult = false;
+        let partialSearchResult
+        if (typeof pathname !== "string") partialSearchResult = false;
         else {
-            tmpResult = DB
-            for (const [_, value] of jsonStepFromQuery.entries()) {
+            partialSearchResult = DB
+            for (const [_, step] of dbSearchPath.entries()) {
+                if (Array.isArray(partialSearchResult)) partialSearchResult = partialSearchResult.find(element => element.id == step)
+                else partialSearchResult = partialSearchResult[step]
 
-                if (Array.isArray(tmpResult)) tmpResult = tmpResult.find(result => result.id == value)
-                else tmpResult = tmpResult[value]
-
-                if (tmpResult === undefined) {
-                    setData(false)
+                if (partialSearchResult === undefined) {
+                    setSearchResult(false)
                     break;
                 }
             }
         }
-        setData(tmpResult);
+        setSearchResult(partialSearchResult);
         
     }, [])
 
-    return data;
+    return searchResult;
 }
