@@ -1,18 +1,26 @@
-.nodes-container{
+.nodes-container {
    font-size: 2rem;
    display: flex;
-   width: 50%; 
-   justify-content: space-between;
-}
-.nodes-container > .node-element{
-   display: flex;
+   justify-content: center;
+   width: 50%;
 
 }
 
-.nodes-container > .node-element:not(:last-child)::after{
+.nodes-container>.node-element:not(:last-child) {
+   position: relative;
+   padding-right: 2rem;
+}
+
+
+
+
+.nodes-container>.node-element:not(:last-child)::after {
    content: "";
+   position: absolute;
+   right: 2%;
+   top: 50%;
+   transform: translate(0, -50%);
    height: 1px;
-   display: block;
    border: 1px solid gray;
-   width: 100%;
+   width: 1.75rem;
 }

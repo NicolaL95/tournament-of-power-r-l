@@ -23,6 +23,8 @@ export default function useDatabase(customJsonPathRaw = null) {
     const jsonStepFromQuery = customJsonPathFormatted.split("/").slice(1);
     const [data, setData] = useState("");
 
+
+
     useEffect(() => {   
         
         let tmpResult
@@ -42,7 +44,7 @@ export default function useDatabase(customJsonPathRaw = null) {
         }
         setData(tmpResult);
         
-    }, [data])
+    }, [])
 
     return [data,setData];
 }

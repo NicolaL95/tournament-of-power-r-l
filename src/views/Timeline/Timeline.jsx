@@ -6,7 +6,8 @@ export default function Timeline() {
 
   const [currenTimeline,setCurrentTimeline] = useDatabase();
   return (
-    <div className='is-flex is-flex-direction-column is-align-items-center'>Timeline
+    <div className='is-flex is-flex-direction-column is-align-items-center'>
+      <p>{currenTimeline.description}</p>
       <TimeLineNodes customClass={"nodes-container"} nodes={currenTimeline.timelineNodes}/>
     </div>
   )
