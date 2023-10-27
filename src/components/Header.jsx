@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 import Top from "../assets/top.png";
 
-export default function Header() {
+export default function Header({customRef}) {
     return(
-        <header>
+        <header ref={customRef}>
             <nav className="navbar is-dark is-hoverable" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <Link to="/">

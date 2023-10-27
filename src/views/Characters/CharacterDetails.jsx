@@ -5,11 +5,11 @@ import DefaultContentComponent from "../../components/DefaultContentComponent";
 
 export default function CharacterDetails() {
 
-    const character = useDatabase();
+    const [character] = useDatabase();
     const img = getImage(character?.src);
     
     return (
-        <div className="container p-6">
+        <div className="p-6">
             {!character ? <DefaultContentComponent label={"character not found"} /> :
                 <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center">
                     <div className="column is-full">

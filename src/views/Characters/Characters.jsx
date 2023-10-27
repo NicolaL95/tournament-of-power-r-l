@@ -5,11 +5,11 @@ import getImage from "../../utils/getImage";
 
 export default function Characters() {
 
-    const characters = useDatabase();
+    const [characters] = useDatabase();
     const { pathname } = useLocation();
 
     return(
-        <div className="container p-6">
+        <div className="p-6">
             <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap">
                 {Object.keys(characters).map(key =>
                     <div className="column" style={ {flexBasis: "auto"} } key={ characters[key].id }>
