@@ -54,17 +54,17 @@
     {
       "id": "node-1",
       "description": "node-1",
-      "subnodes": [{"description": "subnode-1-1"},{"description":"subnode-1-2"}]
+      "subnodes": [{"id": "subnode-1-1","description": "subnode-1-1"},{"id": "subnode-1-2","description":"subnode-1-2"}]
     },
     {
       "id": "node-2",
       "description": "node-2",
-      "subnodes": [{"description": "subnode-2-1"},{"description":"subnode-2-2"}]
+      "subnodes": [{"id":"subnode-2-1","description": "subnode-2-1"},{"id": "subnode-2-2","description":"subnode-2-2"}]
     },
     {
       "id": "node-3",
       "description": "node-3",
-      "subnodes": [{"description": "subnode-3-1"},{"description":"subnode-3-2"}]
+      "subnodes": [{"id": "subnode-3-1","description": "subnode-3-1"},{"id": "subnode-3-2","description":"subnode-3-2"}]
     }
   ]
 },

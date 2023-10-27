@@ -3,13 +3,21 @@
    display: flex;
    justify-content: center;
    width: 50%;
-
+   bottom: 30%;
+   left: 50%;
+   transform: translate(-50%,-50%);
 }
 
 .nodes-container>.node-element:not(:last-child) {
    position: relative;
    padding-right: 2rem;
 }
+
+.subnode-container>.subnode-element:not(:last-child) {
+   padding-bottom: .5rem;
+   position: relative;
+}
+
 
 
 
@@ -23,4 +31,16 @@
    height: 1px;
    border: 1px solid gray;
    width: 1.75rem;
+}
+
+.subnode-container>.subnode-element:not(:last-child)::after {
+   content: "";
+   position: absolute;
+   right: 43%;
+   top: 95%;
+   transform: translate(0, -50%);
+   height: 1rem;
+   border: 1px solid gray;
+   width: 1px;
+
 }

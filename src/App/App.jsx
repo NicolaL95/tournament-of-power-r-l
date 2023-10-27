@@ -11,14 +11,15 @@ function App() {
   const headerRef = useRef(null);
   const mainRef = useRef(null);
   useEffect(() => {
-  if(mainRef.current && headerRef.current) mainRef.current.style.height = `1px`
+    console.log(headerRef,`calc(100vh - ${headerRef.current.offsetHeight}px)`)
+  if(mainRef.current && headerRef.current) mainRef.current.style.height = `calc(100vh - ${headerRef.current.offsetHeight}px)`
   
    
   }, [])
   
   return (
     <div className="App">
-      <Header customref={headerRef}/>
+      <Header customRef={headerRef}/>
       <main ref={mainRef} className='container'>
         <Outlet />
       </main>
