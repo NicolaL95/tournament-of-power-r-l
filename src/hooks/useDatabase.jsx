@@ -3,7 +3,7 @@ import DB from '../db/db.json'
 import { useLocation } from 'react-router';
 
 export default function useDatabase() {
-
+    
     let { pathname } = useLocation();
     if ( pathname === "/" ) pathname += "homepage";
     const [data, setData] = useState("");
@@ -13,13 +13,14 @@ export default function useDatabase() {
         let tmpResult
         if (typeof path !== "string") tmpResult = false;
         else {
-            partialSearchResult = DB
-            for (const [_, step] of dbSearchPath.entries()) {
-                if (Array.isArray(partialSearchResult)) partialSearchResult = partialSearchResult.find(element => element.id == step)
-                else partialSearchResult = partialSearchResult[step]
+            tmpResult = DB
+            for (const [_, value] of jsonStepFromQuery.entries()) {
 
-                if (partialSearchResult === undefined) {
-                    setSearchResult(false)
+                if (Array.isArray(tmpResult)) tmpResult = tmpResult.find(result => result.id == value)
+                else tmpResult = tmpResult[value]
+
+                if (tmpResult === undefined) {
+                    setData(false)
                     break;
                 }
             }
