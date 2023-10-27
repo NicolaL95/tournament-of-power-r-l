@@ -1,14 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useDatabase from '../../hooks/useDatabase'
 import TimeLineNodes from '../../components/TimeLineNodes';
 import "./Timeline.css"
 export default function Timeline() {
 
-  const [currenTimeline,setCurrentTimeline] = useDatabase();
+  const [timeline,setTimeline] = useDatabase();
+
+  const [currentTimeline,setCurrentTimeline] = useDatabase();
+
+
+  useEffect(() => {
+   console.log(
+    currentTimeline
+   )
+  }, [currentTimeline])
+  
+
   return (
-    <div className='is-flex is-flex-direction-column is-align-items-center'>
-      <p>{currenTimeline.description}</p>
-      <TimeLineNodes customClass={"nodes-container"} nodes={currenTimeline.timelineNodes}/>
+    <div className='is-flex is-flex-direction-column is-align-items-center is-relative'>
+      <p>{currentTimeline?.description}</p>
+      <TimeLineNodes click={setCurrentTimeline} customClass={"nodes-container is-absolute"} nodes={timeline.timelineNodes}/>
     </div>
   )
 }

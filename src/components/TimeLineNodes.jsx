@@ -1,11 +1,10 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-regular-svg-icons'
+import Node from './Node'
 
-export default function TimeLineNodes({nodes,customClass}) {
+export default function TimeLineNodes({nodes,customClass,click}) {
   return (
-    <div className={customClass}>
-{nodes?.map(element=> <div className='node-element'><FontAwesomeIcon  icon={faCircle} /></div>)}
+    <div className={`${customClass}`}>
+{nodes?.map(element=> <Node node={element} nodeClick={click}/>)}
     </div>
     
   )

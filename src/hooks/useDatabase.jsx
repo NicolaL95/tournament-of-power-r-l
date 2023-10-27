@@ -2,33 +2,16 @@ import React, { useEffect, useState } from 'react'
 import DB from '../db/db.json'
 import { useLocation } from 'react-router';
 
-
-
-export default function useDatabase(customJsonPathRaw = null) {
-
-    function formatCustomJsonPath(jsonPathRaw){
-        return jsonPathRaw;
-    }
-
-    const {pathname} = useLocation();
-    let customJsonPathFormatted;
-
-    if(!customJsonPathRaw){
-         customJsonPathFormatted  = pathname
-    }else{
-        customJsonPathFormatted = formatCustomJsonPath(customJsonPathRaw);
-    }
-        
-    if ( customJsonPathFormatted === "/" ) customJsonPathFormatted += "homepage";
-    const jsonStepFromQuery = customJsonPathFormatted.split("/").slice(1);
+export default function useDatabase() {
+    
+    let { pathname } = useLocation();
+    if ( pathname === "/" ) pathname += "homepage";
     const [data, setData] = useState("");
 
-
-
-    useEffect(() => {   
-        
+    const getDbFromJsonPath = (path) =>{
+        const jsonStepFromQuery = path.split("/").slice(1);
         let tmpResult
-        if (typeof customJsonPathFormatted !== "string") tmpResult = false;
+        if (typeof path !== "string") tmpResult = false;
         else {
             tmpResult = DB
             for (const [_, value] of jsonStepFromQuery.entries()) {
@@ -43,8 +26,11 @@ export default function useDatabase(customJsonPathRaw = null) {
             }
         }
         setData(tmpResult);
-        
+    }
+
+    useEffect(() => {   
+        getDbFromJsonPath(pathname);
     }, [])
 
-    return [data,setData];
+    return [data,getDbFromJsonPath];
 }

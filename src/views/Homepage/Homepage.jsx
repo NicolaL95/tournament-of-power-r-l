@@ -5,7 +5,7 @@ import Countdown from '../../components/Countdown';
 
 export default function Homepage() {
 
-  const [homepage]  = useDatabase();
+  const [homepage,test]  = useDatabase();
   const targetDate = new Date(homepage.date).getTime();
 
   return (
