@@ -11,8 +11,9 @@ function App() {
   const headerRef = useRef(null);
   const mainRef = useRef(null);
   useEffect(() => {
-    console.log(headerRef,`calc(100vh - ${headerRef.current.offsetHeight}px)`)
-  if(mainRef.current && headerRef.current) mainRef.current.style.height = `calc(100vh - ${headerRef.current.offsetHeight}px)`
+
+    console.log(headerRef,headerRef.current.clientHeight,headerRef.current.offsetHeight)
+  if(mainRef.current && headerRef.current) mainRef.current.style.height = `calc(100vh - ${headerRef.current.clientHeight}px)`
   
    
   }, [])
