@@ -1,13 +1,25 @@
 import { Link } from "react-router-dom"
-import Top from "../assets/top.png";
+import useDatabase from "../hooks/useDatabase";
+import getImage from "../utils/getImage";
+import { useEffect } from "react";
 
 export default function Header({customRef}) {
+    const [navbar,setNavbar] = useDatabase(); 
+    const logo = getImage(navbar?.logoImg)
+
+    useEffect(() => {
+     setNavbar('/navbar')
+    }, [])
+    
+
+    const getNavbarElements = () =>  navbar.navbarElements?.map(element=> <Link className="navbar-item has-text-primary-dark" to={element.linkTo} >{element.label}</Link>)
+
     return(
         <header ref={customRef}>
-            <nav className="navbar is-dark is-hoverable" role="navigation" aria-label="main navigation">
+            <nav className="navbar is-dark is-hoverable font-text-1" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <Link to="/">
-                        <img src={Top} style={{height: "60px"}} className="py-2 px-2" />
+                        <img src={logo} style={{height: "60px"}} className="py-2 px-2" />
                     </Link>
                     <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
@@ -17,10 +29,7 @@ export default function Header({customRef}) {
                 </div>
                 <div id="navbarBasicExample" className="navbar-menu has-text-weight-bold">
                     <div className="navbar-start ">
-                        <Link className="navbar-item has-text-primary-dark" to="/" >Home</Link>
-                        <Link className="navbar-item has-text-primary-dark" to="timeline" >Timeline</Link>
-                        <Link className="navbar-item has-text-primary-dark" to="characters" >Characters</Link>
-                        <Link className="navbar-item has-text-primary-dark" to="contacts" >Contacts</Link>
+                    {getNavbarElements()}
                     </div>
                 </div>
             </nav>

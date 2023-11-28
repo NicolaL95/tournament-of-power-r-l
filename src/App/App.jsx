@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <Header customRef={headerRef}/>
-      <main ref={mainRef} className='container'>
+      <main ref={mainRef} className='container font-text-2'>
         <Outlet />
       </main>
     </div>

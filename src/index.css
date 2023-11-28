@@ -9,6 +9,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+
+.font-text-1{
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-text-2{
+  font-family: 'Black Ops One', sans-serif;
 }
 
 code {
