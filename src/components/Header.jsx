@@ -4,7 +4,7 @@ import getImage from "../utils/getImage";
 import { useEffect } from "react";
 
 export default function Header({customRef}) {
-    const [dataNavbar,setNavbar] = useDatabase("navbar",{config:{haveUrlPath: false}});
+    const [dataNavbar,setNavbar] = useDatabase(["navbar"],{haveUrlPath: false});
     const {navbar} = dataNavbar;
     const logo = getImage(navbar?.logoImg)
 

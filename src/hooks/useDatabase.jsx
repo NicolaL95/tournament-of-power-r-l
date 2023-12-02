@@ -45,23 +45,16 @@ import DB from '../db/db.json'
 import { useLocation } from 'react-router';
 
 
-export default function useDatabase(...params) {
+export default function useDatabase(params = [],config = {}) {
     const [data, setData] = useState({});
 
     let { pathname: urlPath } = useLocation();
 
-    const getConfigFromParams = (dirtyParams) => {
+    const getConfigFromParams = (configObject) => {
      
-        let haveUrlPath = true;
+        const haveUrlPath = configObject.haveUrlPath === false ? false : true
 
-        dirtyParams.forEach((paramOption, index) => {
-            if (typeof paramOption === "object" && paramOption.config) {           
-                haveUrlPath = paramOption.config.haveUrlPath
-                dirtyParams.splice(index, 1);
-              
-            }
-        })
-        return { cleanParams:dirtyParams, haveUrlPath }
+        return {haveUrlPath}
     }
     const getJsonKeyFromString = (stringList) => {
         const tmpArray = [];
@@ -80,7 +73,7 @@ export default function useDatabase(...params) {
         return tmpArray;
     }
 
-    const getDbFromJsonPath = (...customParams) => {
+    const getDbFromJsonPath = (customParams = []) => {
         let PathKey = ""
         let newParams = getJsonKeyFromString(customParams);
         newParams.forEach((path) => {
@@ -100,20 +93,24 @@ export default function useDatabase(...params) {
                     }
                 }
             }
-            setData((prevData) => { return { ...prevData, [PathKey]: tmpResult } });
+            if(tmpResult) setData((prevData) => { return { ...prevData, [PathKey]: tmpResult } });
+            
 
         })
     }
 
 
     if (urlPath === "/") urlPath += "homepage";
-    const { cleanParams, haveUrlPath } = getConfigFromParams(params);
-    const defaultPathList = haveUrlPath ?  [urlPath, ...cleanParams] : [...cleanParams];
+    const {haveUrlPath} = getConfigFromParams(config);
+    const defaultPathList = haveUrlPath ?  [urlPath, ...params] : params;
 
     useEffect(() => {
-        getDbFromJsonPath(...defaultPathList)
+        getDbFromJsonPath(defaultPathList)
     }, [])
     
+    useEffect(() => {
+        console.log(data)
+    }, [data])
  
     //the function is passed as setter to inject a custom path
     return [data, getDbFromJsonPath];

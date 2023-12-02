@@ -9,9 +9,7 @@ export default function Homepage() {
   const {homepage} = homepageData
   const targetDate = new Date(homepage?.date).getTime();
 
-useEffect(() => {
-  setData('navbar')
-}, [])
+
 
 
   return (
