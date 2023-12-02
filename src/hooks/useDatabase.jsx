@@ -49,13 +49,15 @@ export default function useDatabase(params = [],config = {}) {
     const [data, setData] = useState({});
 
     let { pathname: urlPath } = useLocation();
-
+    //read config option from config object
     const getConfigFromParams = (configObject) => {
      
         const haveUrlPath = configObject.haveUrlPath === false ? false : true
 
         return {haveUrlPath}
     }
+
+    //get the proper urlpath from a string
     const getJsonKeyFromString = (stringList) => {
         const tmpArray = [];
         stringList.forEach((stringElement) => {
@@ -102,6 +104,7 @@ export default function useDatabase(params = [],config = {}) {
 
     if (urlPath === "/") urlPath += "homepage";
     const {haveUrlPath} = getConfigFromParams(config);
+    //check if the hooks must call the urlPath from useLocation
     const defaultPathList = haveUrlPath ?  [urlPath, ...params] : params;
 
     useEffect(() => {

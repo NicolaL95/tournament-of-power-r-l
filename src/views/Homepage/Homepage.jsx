@@ -5,11 +5,14 @@ import Countdown from '../../components/Countdown';
 
 export default function Homepage() {
 
-  const [homepageData,setData]  = useDatabase();
+  const [homepageData,setData]  = useDatabase([]);
   const {homepage} = homepageData
   const targetDate = new Date(homepage?.date).getTime();
 
-
+/* useEffect(() => {
+  setData(['navbar'])
+}, []) */
+/* re-apply the code to test how you can add more urlpath from useEffect */
 
 
   return (
