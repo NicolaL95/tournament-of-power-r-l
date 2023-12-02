@@ -66,9 +66,10 @@ export default function useDatabase(params = [],config = {}) {
             else {
                 if (typeof stringElement === "string" && DB.jsonKey[stringElement]) tmpArray.push(DB.jsonKey[stringElement])
                 else {
-                    const { key, value } = stringElement;
-                    if(DB.jsonKey[key]) tmpArray.push(`${DB.jsonKey[key]}${value}`)
-                    
+                    console.log(stringElement)
+                    for (const [key,value] of Object.entries(stringElement)) {
+                        if(DB.jsonKey[key]) tmpArray.push(`${DB.jsonKey[key]}${value}`)
+                    }
                 }
             }
         })
