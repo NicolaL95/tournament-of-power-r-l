@@ -117,5 +117,14 @@
     }
   ]
 },
-"contacs": {}   
+"contacs": {},
+"jsonKey":{
+  "homepage": "/homepage",
+  "navbar": "/navbar",
+  "navbarElement": "/navbar/navbarElement",
+  "timeline": "/timeline",
+  "timelineNodes": "/timeline/timelineNodes/",
+  "characters": "/characters",
+  "charactersElement": "/characters/"
+}   
 }
