@@ -5,9 +5,11 @@ import Countdown from '../../components/Countdown';
 
 export default function Homepage() {
 
-  const [homepageData,setData]  = useDatabase();
-  const {homepage} = homepageData
-  const targetDate = new Date(homepage?.date).getTime();
+  
+ const [homepageData,setData]  = useDatabase();
+ const {homepage,tegus} = homepageData
+ console.log("home",homepage,tegus)
+ const targetDate = new Date(homepage?.date).getTime();
 
  useEffect(() => {
   setData([{charactersElement:"tegus"}])
