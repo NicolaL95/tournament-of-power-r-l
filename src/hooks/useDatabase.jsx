@@ -14,22 +14,17 @@ export default function useDatabase(targetDbKeys = []) {
         keysToSearch.push(...(urlPath.split("/").slice(1)))
     }
 
-    const getDbElementsFromKeys = (keys) => {
-        let searchResult = DB;
+    const getDbElementsFromKeys = (keys, currentResult = DB) => {
+        let searchResult = currentResult;
         
         keys.forEach((key) => {
             if (searchResult.hasOwnProperty(key)) searchResult = searchResult[key];
             
             else if (Array.isArray(searchResult)) {
-                searchResult.forEach((element) => {
-                    if (Object.keys(element).find(keyName => element[keyName] === key)) searchResult = element
-                })
+                searchResult.forEach((element) => { getDbElementsFromKeys([key], element) })
             }
-
-            else { searchResult = undefined; }
         })
-
-        if (searchResult !== undefined) { setData((prevData) => { return { ...prevData, ...searchResult } }); } 
+        setData((prevData) => { return { ...prevData, ...searchResult } });
     }
     
     useEffect(() => { getDbElementsFromKeys(keysToSearch) }, [])
