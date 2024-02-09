@@ -8,41 +8,31 @@ export default function useDatabase(targetDbKeys = []) {
     let { pathname: urlPath } = useLocation();
     const keysToSearch = [];
         
-    if (targetDbKeys.length !== 0) { keysToSearch.push(...targetDbKeys);}
+    if (targetDbKeys.length !== 0) { keysToSearch.push(...targetDbKeys); }
     else { 
         if (urlPath === "/") urlPath += "homepage";
         keysToSearch.push(...(urlPath.split("/").slice(1)))
     }
 
-    const getDbElementsFromKeys = (keysToSearch, startFrom = {}) => {
+    const getDbElementsFromKeys = (keys) => {
         let searchResult = DB;
-        console.log('st',startFrom)
-        if (Object.keys(startFrom).length !== 0) searchResult = startFrom;
         
-        for (let keyIndex in keysToSearch) {
-            if (searchResult.hasOwnProperty(keysToSearch[keyIndex])) { searchResult = searchResult[keysToSearch[keyIndex]]; }
-
+        keys.forEach((key) => {
+            if (searchResult.hasOwnProperty(key)) searchResult = searchResult[key];
+            
             else if (Array.isArray(searchResult)) {
                 searchResult.forEach((element) => {
-                    if (Object.keys(element).find(property => element[property] === keysToSearch[keyIndex])) searchResult = element
+                    if (Object.keys(element).find(keyName => element[keyName] === key)) searchResult = element
                 })
             }
-            
-            else {
-                searchResult = undefined;
-                break;
-            }
-        }
 
-        if(searchResult !== undefined) {
-            setData((prevData) => { return { ...prevData, ...searchResult } });
-        } 
+            else { searchResult = undefined; }
+        })
+
+        if (searchResult !== undefined) { setData((prevData) => { return { ...prevData, ...searchResult } }); } 
     }
-
+    
     useEffect(() => { getDbElementsFromKeys(keysToSearch) }, [])
  
     return [data, getDbElementsFromKeys];
 }
-
-
-
