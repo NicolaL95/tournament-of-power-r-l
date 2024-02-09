@@ -7,7 +7,10 @@ export default function Homepage() {
 
   const [homepageData,setData]  = useDatabase();
   const homepage = homepageData
+  console.log("home",homepage)
   const targetDate = new Date(homepage?.date).getTime();
+
+
 
  useEffect(() => {
   setData([{charactersElement:"tegus"}])

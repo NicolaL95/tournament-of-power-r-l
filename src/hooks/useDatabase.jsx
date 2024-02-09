@@ -16,7 +16,7 @@ export default function useDatabase(targetDbKeys = []) {
 
     const getDbElementsFromKeys = (keysToSearch, startFrom = {}) => {
         let searchResult = DB;
-        
+        console.log('st',startFrom)
         if (Object.keys(startFrom).length !== 0) searchResult = startFrom;
         
         for (let keyIndex in keysToSearch) {
