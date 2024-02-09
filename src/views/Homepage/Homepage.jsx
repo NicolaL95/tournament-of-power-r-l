@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import useDatabase from "../../hooks/useDatabase";
+import useDatabase from '../../hooks/useDatabase';
 import Carousel from '../../components/Carousel';
 import Countdown from '../../components/Countdown';
 
 export default function Homepage() {
 
   const [homepageData,setData]  = useDatabase();
-  const {homepage} = homepageData
+  const homepage = homepageData
   const targetDate = new Date(homepage?.date).getTime();
 
  useEffect(() => {

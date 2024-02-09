@@ -12,7 +12,7 @@ function App() {
   const mainRef = useRef(null);
   useEffect(() => {
 
-    console.log(headerRef,headerRef.current.clientHeight,headerRef.current.offsetHeight)
+    
   if(mainRef.current && headerRef.current) mainRef.current.style.height = `calc(100vh - ${headerRef.current.clientHeight}px)`
   
    

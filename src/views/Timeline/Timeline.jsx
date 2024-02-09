@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import useDatabase from '../../hooks/useDatabase'
+import useDatabase from '../../hooks/useDatabase';
 import TimeLineNodes from '../../components/TimeLineNodes';
 import "./Timeline.css"
 export default function Timeline() {
@@ -7,14 +7,6 @@ export default function Timeline() {
   const [timeline,setTimeline] = useDatabase();
 
   const [currentTimeline,setCurrentTimeline] = useDatabase();
-
-
-  useEffect(() => {
-   console.log(
-    currentTimeline
-   )
-  }, [currentTimeline])
-  
 
   return (
     <div className='is-flex is-flex-direction-column is-align-items-center is-relative is-h-100'>

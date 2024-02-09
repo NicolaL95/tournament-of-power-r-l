@@ -4,10 +4,10 @@ import getImage from "../utils/getImage";
 import { useEffect } from "react";
 
 export default function Header({customRef}) {
-    const [dataNavbar,setNavbar] = useDatabase(["navbar"],{haveUrlPath: false});
-    const {navbar} = dataNavbar;
+    const [dataNavbar,setNavbar] = useDatabase(["navbar"]);
+    const navbar = dataNavbar;
     const logo = getImage(navbar?.logoImg)
-
+    
     const getNavbarElements = () =>  navbar?.navbarElements?.map(element=> <Link className="navbar-item has-text-primary-dark" to={element.linkTo} >{element.label}</Link>)
 
     return(
