@@ -5,7 +5,8 @@ import getImage from "../../utils/getImage";
 
 export default function Characters() {
 
-    const [characters] = useDatabase();
+    const [charactersData] = useDatabase();
+    const {characters} = charactersData
     const { pathname } = useLocation();
 
     return(
