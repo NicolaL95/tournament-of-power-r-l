@@ -8,7 +8,7 @@ export default function useDatabase(targetDbKeys = []) {
     let { pathname: urlPath } = useLocation();
     const keysToSearch = [];
         
-    if (targetDbKeys.length !== 0) { keysToSearch.push(...targetDbKeys);}
+    if (targetDbKeys.length !== 0) { keysToSearch.push(...targetDbKeys); }
     else { 
         if (urlPath === "/") urlPath += "homepage";
         keysToSearch.push(...(urlPath.split("/").slice(1)))
@@ -23,16 +23,23 @@ export default function useDatabase(targetDbKeys = []) {
             else if (Object.values(searchResult).find(value => key === value )) searchResult = searchResult;
 
             else if (Array.isArray(searchResult)) {
-                searchResult = searchResult.find(element => Object.keys(element).find(property => element[property] === key))
+                searchResult.forEach((element) => {
+                    if (Object.keys(element).find(property => element[property] === keysToSearch[keyIndex])) searchResult = element
+                })
             }
-        });
-        setData((prevData) => { return { ...prevData, ...searchResult } });
-    }
+            
+            else {
+                searchResult = undefined;
+                break;
+            }
+        }
 
+        if(searchResult !== undefined) {
+            setData((prevData) => { return { ...prevData, ...searchResult } });
+        } 
+    }
+    
     useEffect(() => { getDbElementsFromKeys(keysToSearch) }, [])
  
     return [data, getDbElementsFromKeys];
 }
-
-
-
