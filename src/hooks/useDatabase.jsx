@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import DB from '../db/db.json'
 import { useLocation } from 'react-router';
 
@@ -14,29 +14,19 @@ export default function useDatabase(targetDbKeys = []) {
         keysToSearch.push(...(urlPath.split("/").slice(1)))
     }
 
-    const getDbElementsFromKeys = (keysToSearch, startFrom = {}) => {
+    const getDbElementsFromKeys = (keys) => {
         let searchResult = DB;
         
-        if (Object.keys(startFrom).length !== 0) searchResult = startFrom;
-        
-        for (let keyIndex in keysToSearch) {
-            if (searchResult.hasOwnProperty(keysToSearch[keyIndex])) { searchResult = searchResult[keysToSearch[keyIndex]]; }
+        keys.forEach(key => {
+            if (searchResult.hasOwnProperty(key)) { searchResult = searchResult[key]; }
+
+            else if (Object.values(searchResult).find(value => key === value )) searchResult = searchResult;
 
             else if (Array.isArray(searchResult)) {
-                searchResult.forEach((element) => {
-                    if (Object.keys(element).find(property => element[property] === keysToSearch[keyIndex])) searchResult = element
-                })
+                searchResult = searchResult.find(element => Object.keys(element).find(property => element[property] === key))
             }
-            
-            else {
-                searchResult = undefined;
-                break;
-            }
-        }
-
-        if(searchResult !== undefined) {
-            setData((prevData) => { return { ...prevData, ...searchResult } });
-        } 
+        });
+        setData((prevData) => { return { ...prevData, ...searchResult } });
     }
 
     useEffect(() => { getDbElementsFromKeys(keysToSearch) }, [])
