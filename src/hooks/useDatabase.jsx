@@ -16,7 +16,7 @@ export default function useDatabase(targetDbKeys = []) {
 
     const getDbElementsFromKeys = (keys) => {
         let searchResult = DB;
-        
+
         keys.forEach(key => {
             if (searchResult.hasOwnProperty(key)) { searchResult = searchResult[key]; }
 
@@ -25,8 +25,9 @@ export default function useDatabase(targetDbKeys = []) {
             else if (Array.isArray(searchResult)) {
                 searchResult = searchResult.find(element => Object.keys(element).find(property => element[property] === key))
             }
+            else searchResult = undefined;
         });
-        setData((prevData) => { return { ...prevData, ...searchResult } });
+        if (searchResult !== undefined) setData((prevData) => { return { ...prevData, ...searchResult } });
     }
 
     useEffect(() => { getDbElementsFromKeys(keysToSearch) }, [])
