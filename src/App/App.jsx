@@ -1,21 +1,13 @@
-
 import './App.css';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { Outlet } from "react-router-dom";
 import { useEffect, useRef } from 'react';
 
-
-
-function App() {
+export default function App() {
   const headerRef = useRef(null);
   const mainRef = useRef(null);
   useEffect(() => {
-
-    
-  if(mainRef.current && headerRef.current) mainRef.current.style.height = `calc(100vh - ${headerRef.current.clientHeight}px)`
-  
-   
+    if(mainRef.current && headerRef.current) mainRef.current.style.height = `calc(100vh - ${headerRef.current.clientHeight}px)`  
   }, [])
   
   return (
@@ -26,6 +18,4 @@ function App() {
       </main>
     </div>
   );
-}
-
-export default App;
+};

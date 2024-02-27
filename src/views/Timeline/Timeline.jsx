@@ -2,10 +2,9 @@ import React, { useEffect } from 'react'
 import useDatabase from '../../hooks/useDatabase';
 import TimeLineNodes from '../../components/TimeLineNodes';
 import "./Timeline.css"
+
 export default function Timeline() {
-
-  const [timeline,setTimeline] = useDatabase();
-
+  const [timeline] = useDatabase();
   const [currentTimeline,setCurrentTimeline] = useDatabase();
 
   return (
@@ -13,5 +12,5 @@ export default function Timeline() {
       <p>{currentTimeline?.description}</p>
       <TimeLineNodes click={setCurrentTimeline} customClass={"nodes-container is-absolute"} nodes={timeline.timelineNodes}/>
     </div>
-  )
+  );
 }
