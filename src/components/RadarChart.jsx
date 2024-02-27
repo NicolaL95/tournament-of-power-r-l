@@ -1,6 +1,6 @@
 import * as echarts from 'echarts';
 import { useEffect } from 'react';
-import DB from '../../db/db.json'
+import DB from '../db/db.json'
 
 export default function RadarChart({characterSpecs2k21, characterSpecs2k24}) {
 

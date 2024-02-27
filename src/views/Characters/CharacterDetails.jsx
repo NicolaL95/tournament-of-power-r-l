@@ -1,4 +1,4 @@
-import RadarChart from "./RadarChart";
+import RadarChart from "../../components/RadarChart";
 import useDatabase from "../../hooks/useDatabase";
 import getImage from "../../utils/getImage";
 import DefaultContentComponent from "../../components/DefaultContentComponent";
