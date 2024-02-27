@@ -6,15 +6,15 @@ import Homepage from './views/Homepage/Homepage';
 import Characters from './views/Characters/Characters';
 import Contacts from './views/Contacts/Contacts';
 import Timeline from './views/Timeline/Timeline';
-import DefaultChildComponent from './components/DefaultChildComponent'
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 import CharacterDetail from './views/Characters/CharacterDetails';
+import { Outlet } from "react-router-dom";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Homepage />} />
-      <Route path="characters" element={<DefaultChildComponent/>}>
+      <Route path="characters" element={<Outlet/>}>
         <Route index element={<Characters />} />
         <Route path=":id" element={<CharacterDetail />} />
       </Route>

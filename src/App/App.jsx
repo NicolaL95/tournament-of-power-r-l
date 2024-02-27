@@ -6,6 +6,7 @@ import { useEffect, useRef } from 'react';
 export default function App() {
   const headerRef = useRef(null);
   const mainRef = useRef(null);
+  
   useEffect(() => {
     if(mainRef.current && headerRef.current) mainRef.current.style.height = `calc(100vh - ${headerRef.current.clientHeight}px)`  
   }, [])

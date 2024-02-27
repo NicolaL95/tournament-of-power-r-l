@@ -1,7 +1,6 @@
 import RadarChart from "../../components/RadarChart";
 import useDatabase from "../../hooks/useDatabase";
 import getImage from "../../utils/getImage";
-import DefaultContentComponent from "../../components/DefaultContentComponent";
 
 export default function CharacterDetails() {
 
@@ -10,7 +9,7 @@ export default function CharacterDetails() {
     
     return (
         <div className="p-6">
-            {!character ? <DefaultContentComponent label={"character not found"} /> :
+            {!character ? <div>character not found</div> :
                 <div className="columns is-flex is-flex-direction-row is-flex-wrap-wrap is-align-items-center">
                     <div className="column is-full">
                         <h1 className="is-size-1 has-text-weight-bold">{character.name}</h1>
