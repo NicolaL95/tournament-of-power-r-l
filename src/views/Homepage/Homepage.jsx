@@ -2,6 +2,7 @@ import React from 'react'
 import useDatabase from '../../hooks/useDatabase';
 import Carousel from '../../components/Carousel';
 import Countdown from '../../components/Countdown';
+import NewCountdown from '../../components/NewCountdown';
 
 export default function Homepage() {
 
@@ -11,6 +12,7 @@ export default function Homepage() {
 
   return (
     <div className="container is-flex-direction-row is-flex-wrap-wrap p-6">
+        <NewCountdown />
         <Countdown targetDate={targetDate}/>
         <Carousel />
         <p className='has-text-justified p-6'>{ homepage?.description }</p> 

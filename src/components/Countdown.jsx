@@ -20,7 +20,7 @@ const ShowCountdown = (props) => {
 
 export default function Countdown ({ targetDate }) {
   const [days, hours, minutes, seconds] = TimeLeft(targetDate);
-
+  
   if (days + hours + minutes + seconds <= 0)  return <ExpiredCountdown />;
   else  return(<ShowCountdown days={days} hours={hours} minutes={minutes} seconds={seconds}/>);
 };

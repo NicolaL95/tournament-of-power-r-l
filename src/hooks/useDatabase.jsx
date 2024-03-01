@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import DB from '../db/db.json'
 import { useLocation } from 'react-router';
 
-
 export default function useDatabase(targetDbKeys = []) {
     const [data, setData] = useState({});
     let { pathname: urlPath } = useLocation();
@@ -34,6 +33,3 @@ export default function useDatabase(targetDbKeys = []) {
  
     return [data, getDbElementsFromKeys];
 }
-
-
-
