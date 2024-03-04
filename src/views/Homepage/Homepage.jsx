@@ -7,10 +7,10 @@ export default function Homepage() {
 
   const [homepageData]  = useDatabase();
   const homepage = homepageData
-
+  
   return (
     <div className="container is-flex-direction-row is-flex-wrap-wrap p-6">
-        <Countdown />
+        <Countdown targetDate={homepage?.date}/>
         <Carousel />
         <p className='has-text-justified p-6'>{ homepage?.description }</p> 
     </div>
