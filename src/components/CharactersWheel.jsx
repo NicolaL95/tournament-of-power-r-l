@@ -30,7 +30,7 @@ export default function CharactersWheel({characters}) {
       )
     }
   
-  function Cards({ amount, radius = 5.25, onPointerOver, onPointerOut, ...props }) {
+  function Cards({ amount, radius = 6.25, onPointerOver, onPointerOut, ...props }) {
     const [hovered, hover] = useState(null)
     const len = Math.PI * 2
     
