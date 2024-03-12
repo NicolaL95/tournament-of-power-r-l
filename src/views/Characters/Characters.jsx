@@ -13,7 +13,7 @@ export default function Characters() {
     return(
         <div className="is-full-height-width p-6">
             <div className="is-full-height-width columns is-flex is-flex-direction-row is-flex-wrap-wrap">
-                <CharactersWheel/>
+                <CharactersWheel characters={characters}/>
             </div>
         </div>
     );

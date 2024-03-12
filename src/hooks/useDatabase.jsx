@@ -10,7 +10,7 @@ export default function useDatabase(targetDbKeys = []) {
     if (targetDbKeys.length !== 0) { keysToSearch.push(...targetDbKeys);}
     else { 
         if (urlPath === "/") urlPath += "homepage";
-        keysToSearch.push(...(urlPath.split("/").slice(1)))
+        keysToSearch.push(...(urlPath.split("/").slice(1)));
     }
 
     const getDbElementsFromKeys = (keys) => {

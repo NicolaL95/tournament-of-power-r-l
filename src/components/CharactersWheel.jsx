@@ -6,35 +6,29 @@ import { easing, geometry } from 'maath';
 
 extend(geometry)
 
-export default function CharactersWheel() {
-    return(
-        <Canvas dpr={[1, 1.5]}>
-            <ScrollControls infinite>
-                <Scene position={[0, 1.5, 0]} />
-            </ScrollControls>
-        </Canvas>
-    );
-}
+export default function CharactersWheel({characters}) {
+  const charactersData = Object.values(characters)
+  const [selectedCharacter, setSelectedCharacter] = useState({name: "test", src: "test.jpeg"});
 
-function Scene({ children, ...props }) {
-    const ref = useRef()
-    const scroll = useScroll()
-    const [hovered, hover] = useState(null)
+  function Scene({ children, ...props }) {
+      const ref = useRef()
+      const scroll = useScroll()
+      const [hovered, hover] = useState(null)
 
-    useFrame((state, delta) => {
-      ref.current.rotation.y = -scroll.offset * (Math.PI * 2) // Rotate contents
-      state.events.update() // Raycasts every frame rather than on pointer-move
-      easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y * 2 + 4.5, 9], 0.3, delta)
-      state.camera.lookAt(0, 0, 0)
-    })
+      useFrame((state, delta) => {
+        ref.current.rotation.y = -scroll.offset * (Math.PI * 2) // Rotate contents
+        state.events.update() // Raycasts every frame rather than on pointer-move
+        easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y * 2 + 4.5, 9], 0.3, delta)
+        state.camera.lookAt(0, 0, 0)
+      })
 
-    return (
-      <group ref={ref} {...props}>
-        <Cards amount="10" onPointerOver={hover} onPointerOut={hover} />
-        <ActiveCard hovered={hovered} />
-      </group>
-    )
-  }
+      return (
+        <group ref={ref} {...props}>
+          <Cards amount={charactersData.length} onPointerOver={hover} onPointerOut={hover} />
+          <ActiveCard hovered={hovered} />
+        </group>
+      )
+    }
   
   function Cards({ amount, radius = 5.25, onPointerOver, onPointerOut, ...props }) {
     const [hovered, hover] = useState(null)
@@ -47,13 +41,13 @@ function Scene({ children, ...props }) {
           return (
             <Card
               key={angle}
-              onPointerOver={(e) => (e.stopPropagation(), hover(i), onPointerOver(i))}
+              onPointerOver={(e) => (e.stopPropagation(), hover(i), onPointerOver(i), setSelectedCharacter(charactersData[i]))}
               onPointerOut={() => (hover(null), onPointerOut(null))}
               position={[Math.sin(angle) * radius, 0, Math.cos(angle) * radius]}
               rotation={[0, Math.PI / 2 + angle, 0]}
               active={hovered !== null}
               hovered={hovered === i}
-              url={`/car.png`}
+              url={`/${charactersData[i].src}`}
             />
           )
         })}
@@ -89,11 +83,20 @@ function Scene({ children, ...props }) {
     return (
       <Billboard {...props}>
         <Text fontSize={0.5} position={[3, 4, 0]} anchorX="left" color="black">
-          {hovered !== null && "TEST"}
+          {hovered !== null && selectedCharacter.name}
         </Text>
-        <Image ref={ref} transparent position={[0, 3, 0]} url={`/car.png`}>
+        <Image ref={ref} transparent position={[0, 3, 0]} url={"/" + selectedCharacter.src}>
           <roundedPlaneGeometry parameters={{ width: 5, height: 5 }} args={[5, 5, 0.2]} />
         </Image>
       </Billboard>
     )
   }
+
+  return(
+    <Canvas dpr={[1, 1.5]}>
+        <ScrollControls infinite >
+            <Scene position={[0, 1.5, 0]} />
+        </ScrollControls>
+    </Canvas>
+  );
+}
