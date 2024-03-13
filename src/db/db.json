@@ -117,5 +117,31 @@
     }
   ]
 },
-"contacs": {}
+"gallery": [
+  {
+    "id": 1,
+    "name":"Test1",
+    "src": "test1.jpeg",
+    "description": "Andio",
+    "position": [-0.8, 0, -0.6],
+    "rotation": [0, 0, 0]
+  },
+  {
+    "id": 2,
+    "name":"Test2",
+    "src": "test2.jpeg",
+    "description": "Andio",
+    "position": [0.8, 0, -0.6],
+    "rotation": [0, 0, 0]
+  },
+  {
+    "id": 3,
+    "name":"Test3",
+    "src": "test3.jpeg",
+    "description": "Andio",
+    "position": [-1.75, 0, 0.25],
+    "rotation": [0, 1.2566370614359172, 0]
+  }
+],
+"contacts": {}
 }
