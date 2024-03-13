@@ -64,8 +64,12 @@ export default function ThreeDGallery ({images}) {
       easing.dampC(frame.current.material.color, hovered ? 'orange' : '#363636', 0.1, dt)
     })
 
+    let rotate = rotation;
+    if(rotation[1]!== 0)
+      rotate = [rotation[0], Math.PI / rotation[1], rotation[2]];
+
     return (
-      <group key={name} position={position} rotation={rotation}>
+      <group key={name} position={position} rotation={rotate}>
         <mesh
           name={name}
           onPointerOver={(e) => (e.stopPropagation(), hover(true))}

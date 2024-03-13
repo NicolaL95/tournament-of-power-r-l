@@ -140,7 +140,7 @@
     "src": "test3.jpeg",
     "description": "Andio",
     "position": [-1.75, 0, 0.25],
-    "rotation": [0, 1.2566370614359172, 0]
+    "rotation": [0, 2.5, 0]
   }
 ],
 "contacts": {}
