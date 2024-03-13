@@ -9,6 +9,7 @@ import Timeline from './views/Timeline/Timeline';
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 import CharacterDetail from './views/Characters/CharacterDetails';
 import { Outlet } from "react-router-dom";
+import Gallery from './views/Gallery/Gallery';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path="contacts" element={<Contacts />} />
       <Route path="timeline" element={<Timeline />} />
+      <Route path="gallery" element={<Gallery />} />
     </Route>
   )
 );

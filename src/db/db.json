@@ -7,7 +7,7 @@
 "navbar":{
   "logoImg": "top.png",
   "navbarElements":[
-    {"label":"Home" ,"linkTo":"/"},{"label":"Timeline" ,"linkTo":"timeline"},{"label":"Characters" ,"linkTo":"characters"},{"label":"Contacts" ,"linkTo":"contacts"}
+    {"label":"Home" ,"linkTo":"/"},{"label":"Timeline" ,"linkTo":"timeline"},{"label":"Characters" ,"linkTo":"characters"},{"label":"Gallery" ,"linkTo":"gallery"},{"label":"Contacts" ,"linkTo":"contacts"}
   ]
 },
 "timeline":{
