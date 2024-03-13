@@ -15,11 +15,11 @@ const images = [
   // Left
   { position: [-1.75, 0, 0.25], rotation: [0, Math.PI / 2.5, 0], url: "/test3.jpeg" },
   { position: [-2.15, 0, 1.5], rotation: [0, Math.PI / 2.5, 0], url: "/test4.jpeg" },
-  { position: [-2, 0, 2.75], rotation: [0, Math.PI / 2.5, 0], url: "/test.jpeg" },
+  { position: [-2.40, 0, 2.75], rotation: [0, Math.PI / 2.5, 0], url: "/test.jpeg" },
   // Right
   { position: [1.75, 0, 0.25], rotation: [0, -Math.PI / 2.5, 0], url: "/test.jpeg" },
   { position: [2.15, 0, 1.5], rotation: [0, -Math.PI / 2.5, 0], url: "/test.jpeg" },
-  { position: [2, 0, 2.75], rotation: [0, -Math.PI / 2.5, 0], url: "/test.jpeg" }
+  { position: [2.40, 0, 2.75], rotation: [0, -Math.PI / 2.5, 0], url: "/test.jpeg" }
 ]
 
 export default function Gallery () {
@@ -63,7 +63,7 @@ function Frames({q = new THREE.Quaternion(), p = new THREE.Vector3() }) {
   return (
     <group
       ref={ref}
-      onClick={(e) => (e.stopPropagation(), setLocation(clicked.current === e.object ? '/gallery' : '/gallery/' + e.object.name), console.log(e.object))}
+      onClick={(e) => (e.stopPropagation(), setLocation(clicked.current === e.object ? '/gallery' : '/gallery/' + e.object.name))}
       onPointerMissed={() => setLocation('/gallery')}>
       {images.map((props) => <Frame key={props.url} {...props} /> )}
     </group>
