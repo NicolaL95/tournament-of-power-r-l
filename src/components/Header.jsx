@@ -7,7 +7,7 @@ export default function Header({customRef}) {
     const navbar = dataNavbar;
     const logo = getImage(navbar?.logoImg)
     
-    const getNavbarElements = () =>  navbar?.navbarElements?.map(element=> <Link className="navbar-item has-text-primary-dark" to={element.linkTo} >{element.label}</Link>)
+    const getNavbarElements = () =>  navbar?.navbarElements?.map(element=> <Link key={element.linkTo} className="navbar-item has-text-primary-dark" to={element.linkTo} >{element.label}</Link>)
 
     return(
         <header ref={customRef}>
