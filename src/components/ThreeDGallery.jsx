@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useCursor, Image } from '@react-three/drei';
+import { Image } from '@react-three/drei';
 import { useRoute, useLocation } from 'wouter';
 import { easing } from 'maath';
 import './ThreeDGallery.css';
@@ -45,28 +45,20 @@ export default function ThreeDGallery ({images}) {
     )
   }
 
-  function Frame({ src, name, position, rotation, ...props }) {
+  function Frame({ src, name, position, rotation }) {
     const image = useRef();
     const frame = useRef();
-
     const [hovered, hover] = useState(false);
-    const [rnd] = useState(() => Math.random());
-
     const [, params] = useRoute('/gallery/:id');
-
     const isActive = params?.id === name;
-  
-    useCursor(hovered);
+    let rotate = rotation;
     
     useFrame((state, dt) => {
-      image.current.material.zoom = 2 + Math.sin(rnd * 10000 + state.clock.elapsedTime / 3) / 2
       easing.damp3(image.current.scale, [0.85 * (!isActive && hovered ? 0.85 : 1), 0.9 * (!isActive && hovered ? 0.905 : 1), 1], 0.1, dt)
       easing.dampC(frame.current.material.color, hovered ? 'orange' : '#363636', 0.1, dt)
     })
 
-    let rotate = rotation;
-    if(rotation[1]!== 0)
-      rotate = [rotation[0], Math.PI / rotation[1], rotation[2]];
+    if(rotation[1]!== 0) rotate = [rotation[0], Math.PI / rotation[1], rotation[2]];
 
     return (
       <group key={name} position={position} rotation={rotate}>
@@ -85,7 +77,7 @@ export default function ThreeDGallery ({images}) {
           <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={src} />
         </mesh>
       </group>
-    )
+    );
   }
 
   return(
