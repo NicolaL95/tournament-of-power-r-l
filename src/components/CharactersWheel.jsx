@@ -17,8 +17,8 @@ export default function CharactersWheel({characters}) {
       const [hovered, hover] = useState(null)
 
       useFrame((state, delta) => {
-        ref.current.rotation.y = -scroll.offset * (Math.PI * 2) // Rotate contents
-        state.events.update() // Raycasts every frame rather than on pointer-move
+        ref.current.rotation.y = -scroll.offset * (Math.PI * 2)
+        state.events.update()
         easing.damp3(state.camera.position, [-state.pointer.x * 2, state.pointer.y * 2 + 4.5, 9], 0.3, delta)
         state.camera.lookAt(0, 0, 0)
       })
