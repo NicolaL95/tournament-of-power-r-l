@@ -123,7 +123,7 @@
     "name":"Test1",
     "src": "test.jpeg",
     "description": "Andio",
-    "position": [-0.8, 0, -0.6],
+    "position": [-1, 0, -0.6],
     "rotation": [0, 0, 0]
   },
   {
@@ -131,7 +131,7 @@
     "name":"Test2",
     "src": "test.jpeg",
     "description": "Andio",
-    "position": [0.8, 0, -0.6],
+    "position": [1, 0, -0.6],
     "rotation": [0, 0, 0]
   },
   {
@@ -139,7 +139,7 @@
     "name":"Test3",
     "src": "test.jpeg",
     "description": "Andio",
-    "position": [-1.75, 0, 0.25],
+    "position": [-2.5, 0, 0.25],
     "rotation": [0, 2.5, 0]
   },
   {
@@ -147,7 +147,7 @@
     "name":"Test4",
     "src": "test.jpeg",
     "description": "Andio",
-    "position": [1.75, 0, 0.25],
+    "position": [2.5, 0, 0.25],
     "rotation": [0, -2.5, 0]
   },
   {
@@ -155,7 +155,7 @@
     "name":"Test5",
     "src": "test.jpeg",
     "description": "Andio",
-    "position": [-2.15, 0, 1.5],
+    "position": [-3.1, 0, 2],
     "rotation": [0, 2.5, 0]
   },
   {
@@ -163,7 +163,7 @@
     "name":"Test6",
     "src": "test.jpeg",
     "description": "Andio",
-    "position": [2.15, 0, 1.5],
+    "position": [3.1, 0, 2],
     "rotation": [0, -2.5, 0]
   }
 ],

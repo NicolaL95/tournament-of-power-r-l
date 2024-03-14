@@ -6,7 +6,7 @@ import { useRoute, useLocation } from 'wouter';
 import { easing } from 'maath';
 import './ThreeDGallery.css';
 
-const GOLDENRATIO = 1.5;
+const GOLDENRATIO = 2.5;
 
 export default function ThreeDGallery ({images}) {
   
@@ -74,7 +74,7 @@ export default function ThreeDGallery ({images}) {
           name={name}
           onPointerOver={(e) => (e.stopPropagation(), hover(true))}
           onPointerOut={() => hover(false)}
-          scale={[1, GOLDENRATIO, 0.05]}
+          scale={[1.75, GOLDENRATIO, 0.05]}
           position={[0, GOLDENRATIO / 2, 0]}>
           <boxGeometry />
           <meshStandardMaterial color="#00b89c" />
@@ -92,7 +92,7 @@ export default function ThreeDGallery ({images}) {
     <div className="gallery container mt-6">
       <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 0, 0] }}>
         <ambientLight />
-        <group position={[0, -0.5, 0]}>
+        <group position={[0, -1, 0]}>
           <Frames/>
         </group>
       </Canvas>
