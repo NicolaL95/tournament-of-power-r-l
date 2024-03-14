@@ -3,12 +3,13 @@ import { useLayoutEffect, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { Image, ScrollControls, useScroll, Billboard, Text } from '@react-three/drei';
 import { easing, geometry } from 'maath';
+import './CharactersWheel.css';
 
 extend(geometry)
 
 export default function CharactersWheel({characters}) {
-  const charactersData = Object.values(characters)
-  const [selectedCharacter, setSelectedCharacter] = useState({name: "test", src: "test.jpeg"});
+  const charactersData = Object.values(characters);
+  const [selectedCharacter, setSelectedCharacter] = useState({name: "test", src: "test.png"});
 
   function Scene({ children, ...props }) {
       const ref = useRef()
@@ -65,7 +66,9 @@ export default function CharactersWheel({characters}) {
     
     return (
       <group {...props}>
-        <Image ref={ref} url={url} scale={[2, 2, 2]} side={THREE.DoubleSide} onClick={() => console.log("CIOA")}/>
+        <Image ref={ref} url={url} scale={[1, 1, 1]} side={THREE.DoubleSide} onClick={() => console.log("CIOA")}>
+          <roundedPlaneGeometry args={[1, 1, 0.2]} />
+        </Image>
       </group>
     )
   }
@@ -93,10 +96,15 @@ export default function CharactersWheel({characters}) {
   }
 
   return(
-    <Canvas dpr={[1, 1.5]}>
-        <ScrollControls infinite >
-            <Scene position={[0, 1.5, 0]} />
-        </ScrollControls>
-    </Canvas>
+    <div className="characters-wheel container mt-6">
+      <Canvas dpr={[1, 1.5]}>
+        <color attach="background" args={['white']} />
+        <group position={[0, -0.5, 0]}>
+          <ScrollControls infinite >
+              <Scene position={[0, 1.5, 0]} />
+          </ScrollControls>
+        </group>
+      </Canvas>
+    </div>
   );
 }
