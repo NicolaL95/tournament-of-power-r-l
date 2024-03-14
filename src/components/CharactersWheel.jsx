@@ -66,7 +66,7 @@ export default function CharactersWheel({characters}) {
     
     return (
       <group {...props}>
-        <Image ref={ref} url={url} scale={[1, 1, 1]} side={THREE.DoubleSide} onClick={() => console.log("CIOA")}>
+        <Image ref={ref} url={url} scale={[2, 2, 2]} side={THREE.DoubleSide} onClick={() => console.log("CIOA")}>
           <roundedPlaneGeometry args={[1, 1, 0.2]} />
         </Image>
       </group>
