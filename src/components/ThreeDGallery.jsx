@@ -45,7 +45,7 @@ export default function ThreeDGallery ({images}) {
     )
   }
 
-  function Frame({ src, name, position, rotation }) {
+  function Frame({ src, name, description, position, rotation }) {
     const image = useRef();
     const frame = useRef();
     const [hovered, hover] = useState(false);
@@ -76,8 +76,8 @@ export default function ThreeDGallery ({images}) {
           </mesh>
           <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={src} />
         </mesh>
-        <Text color="black" maxWidth={0.1} anchorX="left" anchorY="top" position={[-0.3, 0, 0]} fontSize={0.3}>
-          TEST
+        <Text color="black" maxWidth={0.1} anchorX="left" anchorY="top" position={[-0.4, 0, 0]} fontSize={0.3}>
+          {description}
         </Text>
       </group>
     );
