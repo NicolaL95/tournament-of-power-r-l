@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Image } from '@react-three/drei';
+import { Image, Text } from '@react-three/drei';
 import { useRoute, useLocation } from 'wouter';
 import { easing } from 'maath';
 import './ThreeDGallery.css';
@@ -21,7 +21,7 @@ export default function ThreeDGallery ({images}) {
 
       if (clicked.current) {
         clicked.current.parent.updateWorldMatrix(true, true);
-        clicked.current.parent.localToWorld(p.set(0, GOLDENRATIO / 2, 1.85));
+        clicked.current.parent.localToWorld(p.set(0, GOLDENRATIO / 2, 2));
         clicked.current.parent.getWorldQuaternion(q);
       } 
       else {
@@ -40,7 +40,7 @@ export default function ThreeDGallery ({images}) {
         ref={ref}
         onClick={(e) => (e.stopPropagation(), setLocation(clicked.current === e.object ? '/gallery' : '/gallery/' + e.object.name))}
         onPointerMissed={() => setLocation('/gallery')}>
-        {images.map((image) => <Frame key={image.id} {...image} /> )}
+        {images.map((props) => <Frame key={props.id} {...props} /> )}
       </group>
     )
   }
@@ -76,6 +76,9 @@ export default function ThreeDGallery ({images}) {
           </mesh>
           <Image raycast={() => null} ref={image} position={[0, 0, 0.7]} url={src} />
         </mesh>
+        <Text color="black" maxWidth={0.1} anchorX="left" anchorY="top" position={[-0.3, 0, 0]} fontSize={0.3}>
+          TEST
+        </Text>
       </group>
     );
   }
