@@ -84,10 +84,10 @@ export default function ThreeDGallery ({images}) {
   }
 
   return(
-    <div className="gallery container mt-6">
+    <div className="gallery container">
       <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 0, 0] }}>
         <ambientLight />
-        <group position={[0, -1.5, 0]}>
+        <group position={[0, -1.5, -0.5]}>
           <Frames/>
         </group>
       </Canvas>

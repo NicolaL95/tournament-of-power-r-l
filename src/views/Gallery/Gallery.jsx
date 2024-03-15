@@ -5,7 +5,7 @@ export default function Gallery () {
   const [images] = useDatabase();
 
   return (
-    <div className="gallery container is-fullhd">
+    <div className="gallery">
       <ThreeDGallery images={Object.values(images)} />
     </div>
   );
