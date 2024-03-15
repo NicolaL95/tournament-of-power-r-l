@@ -21,7 +21,7 @@ export default function ThreeDGallery ({images}) {
 
       if (clicked.current) {
         clicked.current.parent.updateWorldMatrix(true, true);
-        clicked.current.parent.localToWorld(p.set(0, GOLDENRATIO / 2, 2));
+        clicked.current.parent.localToWorld(p.set(0, GOLDENRATIO / 2, 3));
         clicked.current.parent.getWorldQuaternion(q);
       } 
       else {
