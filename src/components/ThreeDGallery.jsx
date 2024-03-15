@@ -4,7 +4,6 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Image, Text } from '@react-three/drei';
 import { useRoute, useLocation } from 'wouter';
 import { easing } from 'maath';
-import './ThreeDGallery.css';
 
 const GOLDENRATIO = 2.5;
 
@@ -84,13 +83,11 @@ export default function ThreeDGallery ({images}) {
   }
 
   return(
-    <div className="gallery container">
-      <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 0, 0] }}>
-        <ambientLight />
-        <group position={[0, -1.5, -0.5]}>
-          <Frames/>
-        </group>
-      </Canvas>
-    </div>
+    <Canvas dpr={[1, 1.5]} camera={{ fov: 70, position: [0, 0, 0] }}>
+      <ambientLight />
+      <group position={[0, -1.5, -0.5]}>
+        <Frames/>
+      </group>
+    </Canvas>
   );
 }
