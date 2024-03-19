@@ -1,3 +1,6 @@
-.characters-wheel {
-    background: #00947e;
-}  
+
+
+
+div::-webkit-scrollbar {
+    display: none;
+}
